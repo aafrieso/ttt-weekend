@@ -1,17 +1,19 @@
 /*-------------------------------- Constants --------------------------------*/
-
-
-
+//
+const squareEls = document.querySelectorAll('div')
+// console.log(squareEls);
+const messageEls = document.getElementById('message')
+// console.log(messageEl);
 
 /*---------------------------- Variables (state) ----------------------------*/
 
-let board 
+let board = [null, null, null, null, null, null, null, null, null]
 
-let turn 
+let turn = 1
 
-let winner 
+let winner = false
 
-let tie
+let tie = false
 
 
 
@@ -26,3 +28,10 @@ let tie
 
 /*-------------------------------- Functions --------------------------------*/
 
+function init( {
+        render = ()
+})
+
+function updateBoard( {
+
+})
