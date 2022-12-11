@@ -1,9 +1,10 @@
 /*-------------------------------- Constants --------------------------------*/
 //
-const squareEls = document.querySelectorAll('div')
+const squareEls = document.querySelectorAll('div');
 // console.log(squareEls);
-const messageEls = document.getElementById('message')
+const messageEls = document.getElementById('message');
 // console.log(messageEls);
+const resetBtnEl = document.querySelector('button');
 
 const winningCombos = [
     [0, 1, 2],
@@ -28,55 +29,56 @@ let currentPlayer = playerO;
 
 /*------------------------ Cached Element References ------------------------*/
 
-document.getElementById("message") 
+document.getElementById("message");
 
-document.querySelectorAll(".sqr") 
+document.querySelectorAll(".sqr");
 
-document.querySelector(".board")
+document.querySelector(".board");
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-document.querySelector('.board').addEventListener('click', handleClick)
+document.querySelector('.board').addEventListener('click', handleClick);
+document.querySelector('button').addEventListener('click', init)
 
 /*-------------------------------- Functions --------------------------------*/
 function init() {
-    board = [null, null, null, null, null, null, null, null, null]
-    turn = 1
-    winner = false
-    tie = false
-    render()
+    board = [null, null, null, null, null, null, null, null, null];
+    turn = 1;
+    winner = false;
+    tie = false;
+    render();
 }
 init()
 
 function render () {
-    updateBoard()
-    updateMessage()
+    updateBoard();
+    updateMessage();
 }
 
 function updateBoard() {
     board.forEach(function(square, idx) {
         if (square === 1) {
-        return squareEls[idx].innerHTML = "X"
+        return squareEls[idx].innerHTML = "X";
         }else if (square === -1) {
-            squareEls[idx].innerHTML = "O"
+            squareEls[idx].innerHTML = "O";
         }else {
-            squareEls[idx].innerHTML = ""
+            squareEls[idx].innerHTML = "";
         }
     })
 }
 
 function updateMessage() {
     if(winner === false && tie === false) {
-        messageEls.textContent = `player ${turn === 1? 'X' : 'O'} turn`
+        messageEls.textContent = `player ${turn === 1? 'X' : 'O'} turn`;
     } else if (winner === false && tie === true) {
-        messageEls.textContent = `${1 === -1? 'X' : 'O'} it's a tie`
+        messageEls.textContent = `${1 === -1? 'X' : 'O'} it's a tie`;
     } else {
-        messageEls.textContent = `Yay player ${turn === -1? 'O' : 'X'} wins`
+        messageEls.textContent = `Yay player ${turn === -1? 'O' : 'X'} wins!`;
     }
 }
 
 function placePiece(idx) {
-    board[idx] = turn
+    board[idx] = turn;
     console.log(board)
   }
 
@@ -94,20 +96,16 @@ function handleClick(evt) {
       checkForTie()
       switchPlayerTurn()
       render()
-    } if (winner === true) {
-      return
-    }
+    } 
     }
 
 function checkForTie() {
-        board.forEach(function(element){
-          if (element === null) {
-            tie = false
-          } else {
-            tie = true
-          }
-        })
-      }
+    tie = board.every(function(sqr) {
+        return sqr !== null
+    })
+    console.log(tie);
+}
+
       
 function checkForWinner() {
      winningCombos.forEach(function(arr){
@@ -122,10 +120,12 @@ function checkForWinner() {
         })
       }
       
-      function switchPlayerTurn(){
+      function switchPlayerTurn() {
         if (winner === true){
           return
         } else {
           turn = turn * -1
         }
       }
+
+      //Reset game board 
