@@ -25,6 +25,19 @@ div {
   vertical-align: middle;
 }
 
+.reset {
+
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 10px;
+  border: 1.5px solid black;
+  width: 110px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 40px;
+  font-size: large;
+}
+
 .winner {
   background-color: lightgray;
   color: red;

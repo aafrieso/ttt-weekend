@@ -38,7 +38,7 @@ document.querySelector(".board");
 /*----------------------------- Event Listeners -----------------------------*/
 
 document.querySelector('.board').addEventListener('click', handleClick);
-document.querySelector('button').addEventListener('click', init)
+document.querySelector('button').addEventListener('click', init);
 
 /*-------------------------------- Functions --------------------------------*/
 function init() {
