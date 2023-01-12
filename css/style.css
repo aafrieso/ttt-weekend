@@ -1,6 +1,5 @@
 body {
     background-color: white;
-	/* Use a system font, if none are available use an available sans-sarif   font */
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
 		Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	margin: 0;
@@ -16,6 +15,7 @@ section.board {
   grid-template-columns: repeat(3, 10vmin);
   grid-gap: 0vmin;
   margin: 0 auto; 
+  background-color: aquamarine;
 }
 
 div {
@@ -36,6 +36,7 @@ div {
   cursor: pointer;
   border-radius: 40px;
   font-size: large;
+  background-color: gold;
 }
 
 .winner {
